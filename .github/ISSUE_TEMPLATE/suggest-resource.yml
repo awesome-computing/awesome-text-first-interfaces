@@ -1,0 +1,24 @@
+name: Suggest a resource
+description: Propose a CLI/TUI framework, text protocol, or case study to add
+title: "[Resource]: "
+labels: ["resource"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this belong in the list?
+      description: What category does it fit, and why is it relevant to the "text-first before GUI" thesis?
+    validations:
+      required: true
