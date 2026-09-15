@@ -10,6 +10,8 @@ A GUI is a strictly bigger commitment than a text interface: you're signing up f
 
 This isn't an anti-GUI list. It's a guide to sequencing: build the text interface first, because it forces a clean underlying API, and only add a GUI once you know it earns its cost.
 
+**Licensing note:** every entry below is tagged with its license/status — `(MIT)`, `(Apache-2.0)`, etc. for genuine FOSS, or `(proprietary)` for closed-source products. A couple of proprietary tools are included as legitimate, important real-world examples of the text-first pattern; the tag tells you upfront whether you can actually read, fork, or self-host it, or whether it's a closed product you can only use as shipped.
+
 ## Contents
 
 - [Decision Heuristics](#decision-heuristics)
@@ -38,42 +40,42 @@ Reach for a GUI when:
 
 ## CLI Frameworks
 
-- [Cobra](https://github.com/spf13/cobra) — the Go CLI framework behind `kubectl`, `hugo`, `gh`, and much of the modern Go tooling ecosystem.
-- [Click](https://github.com/pallets/click) — Python's most widely used CLI framework, composable commands via decorators.
-- [Typer](https://github.com/fastapi/typer) — Python CLI framework built on type hints, from the FastAPI author.
-- [Clap](https://github.com/clap-rs/clap) — Rust's de facto CLI argument parser, derive-macro friendly.
-- [yargs](https://github.com/yargs/yargs) — the dominant Node.js CLI argument parser.
-- [oclif](https://github.com/oclif/oclif) — Salesforce/Heroku's framework for building large, plugin-based CLIs.
+- [Cobra](https://github.com/spf13/cobra) `(Apache-2.0)` — the Go CLI framework behind `kubectl`, `hugo`, `gh`, and much of the modern Go tooling ecosystem.
+- [Click](https://github.com/pallets/click) `(BSD-3-Clause)` — Python's most widely used CLI framework, composable commands via decorators.
+- [Typer](https://github.com/fastapi/typer) `(MIT)` — Python CLI framework built on type hints, from the FastAPI author.
+- [Clap](https://github.com/clap-rs/clap) `(MIT/Apache-2.0)` — Rust's de facto CLI argument parser, derive-macro friendly.
+- [yargs](https://github.com/yargs/yargs) `(MIT)` — the dominant Node.js CLI argument parser.
+- [oclif](https://github.com/oclif/oclif) `(MIT)` — Salesforce/Heroku's framework for building large, plugin-based CLIs.
 
 ## TUI Frameworks
 
-- [Bubble Tea](https://github.com/charmbracelet/bubbletea) — Elm-architecture TUI framework in Go, paired with [Bubbles](https://github.com/charmbracelet/bubbles) (components) and [Lip Gloss](https://github.com/charmbracelet/lipgloss) (styling). Powers Crush, gh's interactive prompts, and much of the modern terminal-app wave.
-- [Textual](https://github.com/Textualize/textual) — Python TUI framework with a CSS-like styling model and a real widget system.
-- [ratatui](https://github.com/ratatui/ratatui) — Rust's immediate-mode TUI library, the successor to `tui-rs`.
-- [blessed](https://github.com/chjj/blessed) / [neo-blessed](https://github.com/embarklabs/neo-blessed) — classic curses-style terminal UI toolkit for Node.js.
-- [Ink](https://github.com/vadimdemedes/ink) — React for CLIs; render TUIs with JSX and component state.
+- [Bubble Tea](https://github.com/charmbracelet/bubbletea) `(MIT)` — Elm-architecture TUI framework in Go, paired with [Bubbles](https://github.com/charmbracelet/bubbles) `(MIT)` (components) and [Lip Gloss](https://github.com/charmbracelet/lipgloss) `(MIT)` (styling). Powers Crush, gh's interactive prompts, and much of the modern terminal-app wave.
+- [Textual](https://github.com/Textualize/textual) `(MIT)` — Python TUI framework with a CSS-like styling model and a real widget system.
+- [ratatui](https://github.com/ratatui/ratatui) `(MIT)` — Rust's immediate-mode TUI library, the successor to `tui-rs`.
+- [blessed](https://github.com/chjj/blessed) `(MIT)` / [neo-blessed](https://github.com/embarklabs/neo-blessed) `(MIT)` — classic curses-style terminal UI toolkit for Node.js.
+- [Ink](https://github.com/vadimdemedes/ink) `(MIT)` — React for CLIs; render TUIs with JSX and component state.
 
 ## Text & Line-Based Protocols
 
-- [JSON-RPC 2.0](https://www.jsonrpc.org/specification) — the lingua franca for text-first tool-to-tool communication; trivial to implement, trivial to debug on the wire.
-- Newline-delimited JSON (NDJSON) — the simplest possible streaming protocol: one JSON object per line, works over any pipe or socket.
-- [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) — JSON-RPC over stdio/sockets, proof that a text protocol can standardize an entire tooling ecosystem across editors.
-- [Agent Client Protocol (ACP)](https://agentclientprotocol.com/) — an emerging JSON-RPC-based protocol for editor↔agent communication, the same shape as LSP applied to AI coding agents.
+- [JSON-RPC 2.0](https://www.jsonrpc.org/specification) `(open spec)` — the lingua franca for text-first tool-to-tool communication; trivial to implement, trivial to debug on the wire.
+- Newline-delimited JSON (NDJSON) `(open spec)` — the simplest possible streaming protocol: one JSON object per line, works over any pipe or socket.
+- [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) `(open spec, Microsoft-stewarded)` — JSON-RPC over stdio/sockets, proof that a text protocol can standardize an entire tooling ecosystem across editors.
+- [Agent Client Protocol (ACP)](https://agentclientprotocol.com/) `(open spec)` — an emerging JSON-RPC-based protocol for editor↔agent communication, the same shape as LSP applied to AI coding agents.
 
 ## Text-First Tools That Scaled
 
-- **git** — no official GUI for over a decade of dominance; the CLI *is* the product, GUIs are third-party wrappers built on top of it.
-- **Docker CLI** — `docker` predates Docker Desktop by years; the CLI remains the primary interface for automation and CI.
-- **kubectl** — Kubernetes' CLI came first and is still how most cluster automation happens; GUIs like k9s and Lens are optional lenses on top, not replacements.
-- **psql / mysql / sqlite3** — database CLIs remain the fastest path for scripting, migrations, and ad-hoc queries even though every major database has GUI clients.
+- **git** `(GPL-2.0)` — no official GUI for over a decade of dominance; the CLI *is* the product, GUIs are third-party wrappers built on top of it.
+- **Docker CLI** `(Apache-2.0)` — `docker` predates Docker Desktop by years; the CLI remains the primary interface for automation and CI (note: Docker Desktop itself is proprietary — the CLI and the underlying `moby`/`docker engine` are open source).
+- **kubectl** `(Apache-2.0)` — Kubernetes' CLI came first and is still how most cluster automation happens; GUIs like k9s `(Apache-2.0)` and Lens `(MIT core, proprietary cloud features)` are optional lenses on top, not replacements.
+- **psql** `(PostgreSQL License)` **/ mysql** `(GPL-2.0)` **/ sqlite3** `(public domain)` — database CLIs remain the fastest path for scripting, migrations, and ad-hoc queries even though every major database has GUI clients.
 
 ## Text-First AI Agent Interfaces
 
 Coding agents are a live example of the same sequencing argument: a text/TUI interface over a well-defined protocol lets the agent be scripted, run headless in CI, and driven remotely — while a GUI can be layered on top later without changing the underlying contract.
 
-- [Claude Code](https://github.com/anthropics/claude-code) — CLI/TUI-first agent; the same core is also embeddable and drivable programmatically.
-- [opencode](https://github.com/anomalyco/opencode) — TUI-first coding agent with a headless server (`opencode serve`) underneath; the TUI is just one client of a text/HTTP protocol, with web and desktop clients layered on afterward.
-- [Aider](https://github.com/Aider-AI/aider) — terminal-first AI pair-programming tool, git-integrated, scriptable from day one.
+- [opencode](https://github.com/anomalyco/opencode) `(MIT)` — TUI-first coding agent with a headless server (`opencode serve`) underneath; the TUI is just one client of a text/HTTP protocol, with web and desktop clients layered on afterward. Fully open source, buildable and self-hostable end to end.
+- [Aider](https://github.com/Aider-AI/aider) `(Apache-2.0)` — terminal-first AI pair-programming tool, git-integrated, scriptable from day one. Fully open source.
+- [Claude Code](https://github.com/anthropics/claude-code) `(proprietary)` — CLI/TUI-first agent from Anthropic; the same core is also embeddable and drivable programmatically. Included as a genuinely important real-world example of the text-first pattern, but note it's closed-source — the linked repo is issue-tracking/releases for a distributed binary, not a buildable source tree. If you want to study or modify the implementation rather than just use it, opencode and Aider above are the ones you can actually do that with.
 
 ## When You Actually Need a GUI
 
