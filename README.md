@@ -87,6 +87,7 @@ Be honest with yourself here — this list isn't dogma:
 
 ## Further Reading
 
+- [A failed network check is a finding, not a tool crash](https://gist.github.com/seifip/fa05e77888fc8ec0e99463084f056ae6#file-readme-md) `(MIT example; GPL-3.0-only CLI)` — a worked CLI-contract example that preserves a valid JSON diagnostic finding on exit 1 while treating execution failures separately.
 - ["The Art of Unix Programming" — Eric S. Raymond](http://www.catb.org/~esr/writings/taoup/html/) — the philosophical foundation for composable, text-based tools.
 - ["Rule of Composition"](https://en.wikipedia.org/wiki/Unix_philosophy) — programs that do one thing and talk in text compose better than programs that don't.
 
